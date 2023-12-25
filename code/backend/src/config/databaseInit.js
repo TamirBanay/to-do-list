@@ -1,8 +1,7 @@
-const sequelize = require("./database"); // Adjust the path to your database config
-const User = require("../models/user"); // Adjust the path to your User model
-const Todo = require("../models/todo"); // Adjust the path to your User model
+const sequelize = require("./database"); 
+const User = require("../models/user"); 
+const Todo = require("../models/todo"); 
 
-// Sync all models at once
 const initializeDatabase = async () => {
   try {
     await sequelize.sync();
