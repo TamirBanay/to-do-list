@@ -8,3 +8,7 @@ export const _currentUserId = atom({
   key: "_currentUserId",
   default: null,
 });
+export const _user = atom({
+  key: "_user",
+  default: [],
+});

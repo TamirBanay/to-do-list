@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 // import react from "react";
 import {
@@ -10,7 +9,7 @@ import {
   useParams,
 } from "react-router-dom";
 import Home from "./pages/home";
-import Login from "./pages/login/login";
+import Login from "./pages/login/LoginPage";
 import Register from "./pages/register";
 
 function App() {
