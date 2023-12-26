@@ -1,10 +1,15 @@
+// user.js
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database"); // Adjust the path to your database config file
+const sequelize = require("../config/database"); // Adjust the path as necessary
 
 const User = sequelize.define(
   "User",
   {
-    // Attributes
+    id: {
+      type: DataTypes.BIGINT,
+      autoIncrement: true,
+      primaryKey: true,
+    },
     email: {
       type: DataTypes.STRING,
       unique: true,
@@ -20,7 +25,6 @@ const User = sequelize.define(
     },
   },
   {
-    // Model options
     timestamps: true,
   }
 );
