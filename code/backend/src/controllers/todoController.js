@@ -58,3 +58,18 @@ exports.todoIsDone = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+exports.deleteTodo = async (req, res) => {
+  try {
+    const id = req.params.todoId;
+    const deleted = await Todo.destroy({
+      where: { id: id },
+    });
+
+    if (deleted) {
+      return res.status(200).send("Todo deleted");
+    }
+    throw new Error("Todo not found");
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};

@@ -27,6 +27,7 @@ function Todo() {
   const [currentUserId, setCurrentUserId] = useRecoilState(_currentUserId);
   const [userIsLoggedIn, setUserIsLoggedIn] = useRecoilState(_userIsLoggedIn);
   const [userRecoil, setUser] = useRecoilState(_user);
+
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -48,7 +49,7 @@ function Todo() {
     greeting = "Good Morning";
   } else if (hours >= 12 && hours < 18) {
     greeting = "Good Afternoon";
-  } else if (hours >= 18 && hours < 24) {
+  } else if (hours >= 18 && hours < 22) {
     greeting = "Good Evening";
   } else {
     greeting = "Good Night";
@@ -83,7 +84,28 @@ function Todo() {
       .catch((error) => console.error("Error updating todo:", error));
   };
 
-  // Function to fetch todos
+  const deleteTodo = async (todoId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/todos/deleteTodo/${todoId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (response.ok) {
+        console.log("Todo deleted successfully");
+        setFetchTrigger((current) => current - 1); // Increment the trigger
+
+        // Optionally: Update the UI or state to reflect the deletion
+      } else {
+        console.error("Failed to delete the todo");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const fetchTodos = () => {
     const userId = user.id;
     fetch(`http://localhost:3000/todos/getTodoOfUser/${userId}`)
@@ -150,7 +172,9 @@ function Todo() {
                     <div className="todo-list-titels">{todo.title}</div>
                   </div>
                   <div>
-                    <DeleteOutlineOutlinedIcon />
+                    <DeleteOutlineOutlinedIcon
+                      onClick={() => deleteTodo(todo.id)}
+                    />
                   </div>
                 </div>
               ))}
