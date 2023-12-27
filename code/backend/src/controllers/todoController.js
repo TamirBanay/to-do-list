@@ -26,3 +26,15 @@ exports.addTodo = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.getTodoListOfUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const todos = await Todo.findAll({
+      where: { UserIdTable: userId },
+    });
+    res.json(todos);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};

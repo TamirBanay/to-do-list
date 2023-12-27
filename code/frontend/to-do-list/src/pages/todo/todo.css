@@ -1,0 +1,138 @@
+.todo-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.todo-firstPart {
+  height: 30%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  gap: 3px;
+  background: rgba(244, 194, 127, 0.67);
+  width: 100%;
+  padding-bottom: 40px;
+}
+.todo-img {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  stroke-width: 3px;
+  stroke: #d8605b;
+}
+.todo-img img {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 80px;
+
+  border: solid 3px #d8605b;
+}
+.todo-name {
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115.688%; /* 16.196px */
+  letter-spacing: 0.7px;
+}
+.todo-email {
+  color: #d8605b;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115.688%; /* 11.569px */
+  letter-spacing: 0.5px;
+}
+.todo-logout {
+  padding-top: 15px;
+}
+.todo-button {
+  width: 89px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: #f4c27f;
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115.688%; /* 11.569px */
+  letter-spacing: 0.65px;
+  border: 0px;
+}
+.todo-secPart {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 24px;
+  gap: 10px;
+}
+
+.todo-watch-div {
+}
+.todo-watch-div img {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+.todo-good-time {
+  color: rgba(0, 0, 0, 0.75);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 115.688%; /* 13.883px */
+  letter-spacing: 0.72px;
+}
+.todo-tasksList {
+  color: rgba(0, 0, 0, 0.75);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 115.688%; /* 20.824px */
+  letter-spacing: 1.08px;
+  display: flex;
+  flex-direction: row;
+  /* text-align: start; */
+  align-self: flex-start;
+  width: fit-content;
+  padding: 20px;
+}
+.todo-task-box {
+  width: 323px;
+  height: 248px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+  padding: 19px 23px;
+}
+.todo-task-mini-title-and-add-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.todo-mini-title {
+  color: rgba(0, 0, 0, 0.75);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115.688%; /* 16.196px */
+  letter-spacing: 0.84px;
+  display: flex;
+  align-items: center;
+}
