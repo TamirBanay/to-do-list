@@ -5,7 +5,7 @@ import watchImg from "../../images/watch-img.png";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
-
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import {
   _userIsLoggedIn,
   _currentUserId,
@@ -41,7 +41,7 @@ function Todo() {
   const handleAddTaskIsOpen = () => {
     setAddTaskIsOpen(!addTaskIsOpen);
   };
-  
+
   let greeting;
   if (hours < 12) {
     greeting = "Good Morning";
@@ -157,21 +157,26 @@ function Todo() {
             </div>
             <div className="todo-list-todo">
               {todos.map((todo) => (
-                <div key={todo.id} className="todo-item">
-                  <div className="todo-list-titels">{todo.title}</div>
-                  {todo.completed ? (
-                    <div
-                      onClick={() => handleCheckboxChange(todo.id)}
-                      className="todoIsCompleted"
-                    ></div>
-                  ) : (
-                    <input
-                      type="checkbox"
-                      className="todo-checkbox"
-                      checked={todo.completed}
-                      onChange={() => handleCheckboxChange(todo.id)}
-                    />
-                  )}
+                <div key={todo.id} className="todo-main-map">
+                  <div className="todo-item">
+                    {todo.completed ? (
+                      <div
+                        onClick={() => handleCheckboxChange(todo.id)}
+                        className="todoIsCompleted"
+                      ></div>
+                    ) : (
+                      <input
+                        type="checkbox"
+                        className="todo-checkbox"
+                        checked={todo.completed}
+                        onChange={() => handleCheckboxChange(todo.id)}
+                      />
+                    )}
+                    <div className="todo-list-titels">{todo.title}</div>
+                  </div>
+                  <div>
+                    <DeleteOutlineOutlinedIcon />
+                  </div>
                 </div>
               ))}
             </div>

@@ -152,7 +152,6 @@
   line-height: 115.688%;
   letter-spacing: 0.72px;
   padding-left: 7px;
-
 }
 
 .todo-checkbox {
@@ -164,9 +163,17 @@
 }
 .todo-item {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
+  justify-content: start;
   padding-top: 15px;
+  width: 100%;
+}
+.todo-main-map {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: end;
 }
 .todoIsCompleted {
   width: 17px;
