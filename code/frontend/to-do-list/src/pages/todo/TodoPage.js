@@ -10,6 +10,17 @@ function Todo() {
   const userString = localStorage.getItem("user");
   const user = JSON.parse(userString);
   const [todos, setTodos] = useState([]);
+  const hours = new Date().getHours();
+
+  
+  let greeting;
+  if (hours < 12) {
+    greeting = "Good Morning";
+  } else if (hours >= 12 && hours < 18) {
+    greeting = "Good Afternoon";
+  } else {
+    greeting = "Good Evening";
+  }
 
   const handleCheckboxChange = (todoId) => {
     setTodos(
@@ -65,7 +76,7 @@ function Todo() {
         <div className="todo-watch-div">
           <img src={watchImg} />
         </div>
-        <div className="todo-good-time">Good Afternoon</div>
+        <div className="todo-good-time">{greeting}</div>
         <div className="todo-tasksList">Tasks List</div>
         <div className="todo-task-box">
           <div className="todo-task-mini-title-and-add-button">
