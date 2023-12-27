@@ -1,7 +1,7 @@
 import React from "react";
-import logInImag from "../images/Done.png";
-
-function home() {
+import logInImag from "../../images/Done.png";
+import "./home.css";
+function HomePage() {
   const moveToRegister = () => {
     window.location.href = "/register";
   };
@@ -41,4 +41,4 @@ function home() {
   );
 }
 
-export default home;
+export default HomePage;

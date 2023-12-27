@@ -8,7 +8,7 @@ import {
   Routes,
   useParams,
 } from "react-router-dom";
-import Home from "./pages/home";
+import Home from "./pages/home/HomePage";
 import Login from "./pages/login/LoginPage";
 import Register from "./pages/register/RegisterPage";
 import Todo from "./pages/todo/TodoPage";
