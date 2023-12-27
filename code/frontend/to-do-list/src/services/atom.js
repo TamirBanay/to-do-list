@@ -12,3 +12,11 @@ export const _user = atom({
   key: "_user",
   default: [],
 });
+export const _AddTaskIsOpen = atom({
+  key: "_AddTaskIsOpen",
+  default: false,
+});
+export const _FetchTrigger = atom({
+  key: "_FetchTrigger",
+  default: 0,
+});

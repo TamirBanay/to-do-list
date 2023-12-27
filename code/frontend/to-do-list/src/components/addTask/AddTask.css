@@ -1,0 +1,90 @@
+.addTask-main {
+  display: flex;
+  flex-direction: column;
+}
+.addTask-box {
+  width: 323px;
+  height: fit-content;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+  padding: 19px 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.XAndTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.addTask-title {
+  color: rgba(0, 0, 0, 0.75);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115.688%; /* 16.196px */
+  letter-spacing: 0.84px;
+}
+.addTask-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.addTask-title-input {
+  width: 325px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 22px;
+  background: #f4c27fab;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 137.188%; /* 17.834px */
+  letter-spacing: 0.78px;
+  text-indent: 30px; /* Adjust the value as needed */
+  border: 0px;
+}
+.addTask-Description-input {
+  width: 325px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 22px;
+  background: #f4c27fab;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 137.188%; /* 17.834px */
+  letter-spacing: 0.78px;
+  text-indent: 30px;
+  padding-top: 10px;
+
+  border: 0px;
+}
+.addTask-button-div {
+  display: flex;
+  justify-content: center;
+}
+.addTask-button {
+  width: 315px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: linear-gradient(268deg, #d8605b -0.89%, #f4c27f 112.29%);
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 139.188%; /* 22.27px */
+  letter-spacing: 0.96px;
+  border: 0px;
+}
