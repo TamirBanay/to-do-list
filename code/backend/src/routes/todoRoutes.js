@@ -5,5 +5,6 @@ const todoController = require("../controllers/todoController");
 // POST request to add a new todo
 router.post("/add", todoController.addTodo);
 router.get("/getTodoOfUser/:userId", todoController.getTodoListOfUser);
+router.patch("/todoIsDone/:id", todoController.todoIsDone); // Changed todoId to id
 
 module.exports = router;

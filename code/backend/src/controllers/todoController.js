@@ -38,3 +38,23 @@ exports.getTodoListOfUser = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+exports.todoIsDone = async (req, res) => {
+  try {
+    const todoId = req.params.id;
+    const todo = await Todo.findByPk(todoId);
+
+    if (!todo) {
+      return res.status(404).json({ error: "Todo not found" });
+    }
+
+    // Toggle the completed status
+    todo.completed = !todo.completed;
+
+    // Save the changes
+    await todo.save();
+
+    res.json({ message: "Todo updated successfully", todo });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};

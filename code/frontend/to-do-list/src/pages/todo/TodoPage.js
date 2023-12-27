@@ -10,6 +10,37 @@ function Todo() {
   const userString = localStorage.getItem("user");
   const user = JSON.parse(userString);
   const [todos, setTodos] = useState([]);
+
+  const handleCheckboxChange = (todoId) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+
+    fetch(`http://localhost:3000/todos/todoIsDone/${todoId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          setTodos(
+            todos.map((todo) =>
+              todo.id === todoId
+                ? { ...todo, completed: !todo.completed }
+                : todo
+            )
+          );
+          throw new Error("Failed to update todo");
+        }
+        return response.json();
+      })
+      .then((updatedTodo) => {})
+      .catch((error) => console.error("Error updating todo:", error));
+  };
+
   useEffect(() => {
     const userId = user.id;
     fetch(`http://localhost:3000/todos/getTodoOfUser/${userId}`)
@@ -17,7 +48,7 @@ function Todo() {
       .then((data) => setTodos(data))
       .catch((error) => console.error("Error fetching todos:", error));
   }, []);
-  console.log(todos);
+
   return (
     <div className="todo-main">
       <div className="todo-firstPart">
@@ -71,7 +102,26 @@ function Todo() {
               </svg>
             </div>
           </div>
-          <div className="todo-list-todo"></div>
+          <div className="todo-list-todo">
+            {todos.map((todo) => (
+              <div key={todo.id} className="todo-item">
+                <div className="todo-title">{todo.title}</div>
+                {todo.completed ? (
+                  <div
+                    onClick={() => handleCheckboxChange(todo.id)}
+                    className="todoIsCompleted"
+                  ></div>
+                ) : (
+                  <input
+                    type="checkbox"
+                    className="todo-checkbox"
+                    checked={todo.completed}
+                    onChange={() => handleCheckboxChange(todo.id)}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

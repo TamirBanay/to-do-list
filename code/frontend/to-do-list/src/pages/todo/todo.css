@@ -113,7 +113,7 @@
 }
 .todo-task-box {
   width: 323px;
-  height: 248px;
+  height: fit-content;
   flex-shrink: 0;
   border-radius: 24px;
   background: #fff;
@@ -135,4 +135,44 @@
   letter-spacing: 0.84px;
   display: flex;
   align-items: center;
+}
+.todo-list-todo {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.todo-list-titels {
+  color: rgba(0, 0, 0, 0.75);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115.688%;
+  letter-spacing: 0.72px;
+}
+.todo-title {
+  padding-left: 7px;
+}
+.todo-checkbox {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  border: 1px solid #0f4e52;
+  background: #fff;
+}
+.todo-item {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding-top: 15px;
+}
+.todoIsCompleted {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: rgba(244, 194, 127, 0.67);
+  margin-left: 3px;
 }
