@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/home";
 import Login from "./pages/login/LoginPage";
-import Register from "./pages/register";
+import Register from "./pages/register/RegisterPage";
 
 function App() {
   let { userId } = useParams();

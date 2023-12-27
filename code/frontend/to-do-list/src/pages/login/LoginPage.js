@@ -14,6 +14,10 @@ function LoginPage() {
   const [userIsLoggedIn, setUserIsLoggedIn] = useRecoilState(_userIsLoggedIn);
   const navigate = useNavigate();
 
+  const moveToRegister = () => {
+    window.location.href = "/register";
+  };
+
   const loginHandler = () => {
     fetch("http://localhost:3000/users/login", {
       method: "POST",
@@ -57,7 +61,7 @@ function LoginPage() {
         />
         <input
           className="login-password"
-          type="text"
+          type="password"
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -69,7 +73,11 @@ function LoginPage() {
         </button>
       </div>
       <div className="moveToRegister">
-        Don’t have an account ?<span className="secTextSignUp"> Sign Up</span>
+        Don’t have an account ?
+        <span onClick={moveToRegister} className="secTextSignUp">
+          {" "}
+          Sign Up
+        </span>
       </div>
     </div>
   );
