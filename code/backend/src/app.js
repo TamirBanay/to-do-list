@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 //to Initialize database and models uncomment
-initializeDatabase();
+// initializeDatabase();
 
 app.use("/users", userRoutes);
 app.use("/todos", todoRoutes);
