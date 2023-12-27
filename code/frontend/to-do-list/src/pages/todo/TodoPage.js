@@ -4,6 +4,8 @@ import profileImg from "../../images/profileImg.png";
 import watchImg from "../../images/watch-img.png";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
+import { useNavigate } from "react-router-dom";
+
 import {
   _userIsLoggedIn,
   _currentUserId,
@@ -20,7 +22,21 @@ function Todo() {
   const hours = new Date().getHours();
 
   const [addTaskIsOpen, setAddTaskIsOpen] = useRecoilState(_AddTaskIsOpen);
-  const [fetchTrigger, setFetchTrigger] = useRecoilState(_FetchTrigger); // Initialize a trigger
+  const [fetchTrigger, setFetchTrigger] = useRecoilState(_FetchTrigger);
+  const [currentUserId, setCurrentUserId] = useRecoilState(_currentUserId);
+  const [userIsLoggedIn, setUserIsLoggedIn] = useRecoilState(_userIsLoggedIn);
+  const [userRecoil, setUser] = useRecoilState(_user);
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    setCurrentUserId(null);
+    setUserIsLoggedIn(false);
+    setUser(null);
+    navigate(`/login`);
+  };
 
   const handleAddTaskIsOpen = () => {
     setAddTaskIsOpen(!addTaskIsOpen);
@@ -87,7 +103,9 @@ function Todo() {
         <div className="todo-name">{user.name}</div>
         <div className="todo-email">{user.email}</div>
         <div className="todo-logout">
-          <button className="todo-button">Log Out</button>
+          <button className="todo-button" onClick={handleLogOut}>
+            Log Out
+          </button>
         </div>
       </div>
       <div className="todo-secPart">
