@@ -38,7 +38,7 @@ function LoginPage() {
         setUserIsLoggedIn(true);
         setUser(data.payload);
         setCurrentUserId(data.payload.id);
-        navigate(`/${data.payload.id}/home`);
+        navigate(`/${data.payload.id}/todo`);
       });
   };
 
