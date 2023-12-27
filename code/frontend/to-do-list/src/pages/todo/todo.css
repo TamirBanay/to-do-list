@@ -135,6 +135,7 @@
   letter-spacing: 0.84px;
   display: flex;
   align-items: center;
+  
 }
 .todo-list-todo {
   padding-top: 10px;
