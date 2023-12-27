@@ -7,6 +7,7 @@ import {
   Link,
   Routes,
   useParams,
+  Navigate,
 } from "react-router-dom";
 import Home from "./pages/home/HomePage";
 import Login from "./pages/login/LoginPage";
@@ -23,6 +24,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
