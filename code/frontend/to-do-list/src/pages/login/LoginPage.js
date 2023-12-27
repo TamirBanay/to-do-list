@@ -12,6 +12,7 @@ function LoginPage() {
   const [user, setUser] = useRecoilState(_user);
   const [currentUserId, setCurrentUserId] = useRecoilState(_currentUserId);
   const [userIsLoggedIn, setUserIsLoggedIn] = useRecoilState(_userIsLoggedIn);
+  const navigate = useNavigate();
 
   const loginHandler = () => {
     fetch("http://localhost:3000/users/login", {
@@ -27,44 +28,15 @@ function LoginPage() {
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.payload));
+        localStorage.setItem("userId", data.payload.id);
+
         setUserIsLoggedIn(true);
+        setUser(data.payload);
+        setCurrentUserId(data.payload.id);
+        navigate(`/${data.payload.id}/home`);
       });
-    fetchUserData();
   };
-
-  function fetchUserData() {
-    // Retrieve the token from storage
-    const token = localStorage.getItem("token");
-
-    // If there's no token, the user isn't logged in or the token was cleared
-    if (!token) {
-      console.log("No token found. User might not be logged in.");
-      return;
-    }
-
-    fetch("http://localhost:3000/user", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token, // Attach the token as a Bearer token
-      },
-    })
-      .then((response) => {
-        // Check if the request was successful
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Failed to fetch user data");
-      })
-      .then((userData) => {
-        console.log("User Data:", userData);
-        // Do something with user data
-        // Maybe update the UI to show user details
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }
 
   return (
     <div className="main-login">
