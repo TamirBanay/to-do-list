@@ -48,6 +48,7 @@ exports.login = async (req, res) => {
     const payload = {
       id: user.id,
       name: user.name,
+      email: user.email,
     };
 
     // Sign token (expires in 1 hour for example)
@@ -61,6 +62,7 @@ exports.login = async (req, res) => {
     res.status(200).json({
       message: "Success",
       token: "Bearer " + token,
+      payload: payload,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
