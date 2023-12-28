@@ -123,7 +123,7 @@ function Todo() {
     <div className="todo-main">
       <div className="todo-firstPart">
         <div className="todo-img">
-          <img src={profileImg} />
+          <img className="profileImg" src={profileImg} />
         </div>
         <div className="todo-name">{user.name}</div>
         <div className="todo-email">{user.email}</div>

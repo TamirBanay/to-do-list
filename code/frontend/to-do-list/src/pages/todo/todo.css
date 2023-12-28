@@ -16,20 +16,22 @@
   padding-bottom: 40px;
 }
 .todo-img {
-  width: 110px;
-  height: 110px;
+  width: 120px;
+  height: 120px;
   flex-shrink: 0;
-  stroke-width: 3px;
-  stroke: #d8605b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 80px;
 }
 .todo-img img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   flex-shrink: 0;
   border-radius: 80px;
-
-  border: solid 3px #d8605b;
+  border: solid 5px #d8605b;
 }
+
 .todo-name {
   color: #000;
   text-align: center;
@@ -39,6 +41,7 @@
   font-weight: 500;
   line-height: 115.688%; /* 16.196px */
   letter-spacing: 0.7px;
+  padding-top: 10px;
 }
 .todo-email {
   color: #d8605b;
@@ -113,12 +116,14 @@
 }
 .todo-task-box {
   width: 323px;
-  height: fit-content;
+  min-height: 130px;
+  max-height: 130px;
   flex-shrink: 0;
   border-radius: 24px;
   background: #fff;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
   padding: 19px 23px;
+  overflow-y: scroll;
 }
 .todo-task-mini-title-and-add-button {
   display: flex;
@@ -135,7 +140,6 @@
   letter-spacing: 0.84px;
   display: flex;
   align-items: center;
-  
 }
 .todo-list-todo {
   padding-top: 10px;
