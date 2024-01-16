@@ -1,6 +1,6 @@
 ---
 
-# Todo List Application (Mobile)
+# Todo List Application (Mobile App)
 
 ## Introduction
 
